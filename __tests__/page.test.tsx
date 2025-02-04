@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import StringCalculator from "@/app/page";
 
-describe("String Calculator UI", () => {
+describe("String Calculator Component", () => {
   it("renders input box and calculate button", () => {
     render(<StringCalculator />);
 

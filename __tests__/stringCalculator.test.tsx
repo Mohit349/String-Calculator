@@ -31,4 +31,16 @@ describe("String Calculator", () => {
       "Negative numbers not allowed: -2, -4"
     );
   });
+
+  it("should handle a custom delimiter of any length", () => {
+    expect(add("//[***]\n1***2***3")).toBe(6);
+  });
+
+  it("should handle multiple delimiter", () => {
+    expect(add("//[*][%]\n1*2%3")).toBe(6);
+  });
+
+  it("should ignore numbers bigger than 1000", () => {
+    expect(add("2,1001")).toBe(2);
+  });
 });
