@@ -8,7 +8,7 @@ export function add(numbers: string): number | string {
       const delimiterPart = delimiterSection[1];
       // Handled multiple delimiters of any length: "//[***][%%%]\n1***2%%%3"
       const delimiters = delimiterPart.match(/\[([^\]]+)\]/g);
-      if (delimiters) {
+      if (delimiters?.length) {
         delimiter = new RegExp(
           delimiters
             .map((d) => d.slice(1, -1).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
@@ -18,7 +18,7 @@ export function add(numbers: string): number | string {
         delimiter = new RegExp(delimiterPart); // Single custom delimiter
       }
 
-      numbers = numbers.split("\n")[1]; // Remove delimiter definition
+      numbers = numbers.split("\n")[1];
     }
   }
   const numArray = numbers.split(delimiter).map((one) => Number(one));

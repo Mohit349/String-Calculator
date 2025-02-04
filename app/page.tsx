@@ -9,8 +9,12 @@ const StringCalculator = () => {
   const handleCalculate = () => {
     try {
       setOutput(add(input));
-    } catch (error: any) {
-      setOutput(error?.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(error?.message);
+      } else {
+        console.error("An unexpected error occurred:", error);
+      }
     }
   };
 
