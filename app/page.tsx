@@ -11,7 +11,7 @@ const StringCalculator = () => {
       setOutput(add(input));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        console.error(error?.message);
+        setOutput(error?.message);
       } else {
         console.error("An unexpected error occurred:", error);
       }
